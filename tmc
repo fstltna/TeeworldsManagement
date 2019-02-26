@@ -116,7 +116,11 @@ while (-1)
 	elsif ($menuselection eq "7")
 	{
 		# Run a backup
-		system("$BackupCommand");
+                system("clear");
+                system("$BackupCommand");
+                print "Press Enter To Continue";
+                my $entered = <STDIN>;
+
 	}
 	elsif ($menuselection eq "8")
         {
