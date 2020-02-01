@@ -15,7 +15,7 @@ my $BackupCommand = "/root/TeeworldsBackup/teeworldsbackup.pl";
 # No changes below here
 ###################################################
 
-my $MMC_ver = "1.0.0";
+my $MMC_ver = "1.1.0";
 my $ServerStatus = "foo";
 
 my $d = new UI::Dialog ( backtitle => "Teeworlds Management Console v$MMC_ver", height => 20, width => 65, listheight => 5,
