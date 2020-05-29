@@ -7,15 +7,15 @@ use Term::ReadKey;
 use Term::ANSIScreen qw(cls);
 
 my $FileEditor = "/bin/nano";
-my $InitDName = "/etc/init.d/teeworlds";
-my $TEEWORLDSDIR = "/root/twserver";
-my $BackupCommand = "/root/TeeworldsBackup/teeworldsbackup.pl";
+my $InitDName = "/home/twowner/bin/teeworlds";
+my $TEEWORLDSDIR = "/home/twowner";
+my $BackupCommand = "/home/teowner/TeeworldsBackup/teeworldsbackup.pl";
 
 ###################################################
 # No changes below here
 ###################################################
 
-my $MMC_ver = "1.1.0";
+my $MMC_ver = "2.0.0";
 my $ServerStatus = "foo";
 
 my $d = new UI::Dialog ( backtitle => "Teeworlds Management Console v$MMC_ver", height => 20, width => 65, listheight => 5,
@@ -37,7 +37,7 @@ my $menuselection = "";
 
 sub CheckServerStatus
 {
-	my $running=`ps ax|grep "teeworlds_srv"|grep -v grep`;
+	my $running=`ps ax|grep "teeworlds-server"|grep -v grep`;
 	if ($running ne "")
 	{
 		$ServerStatus = "Running";
@@ -59,14 +59,12 @@ sub MainMenu
 	}
 
 	$menuselection = $d->menu( title => "Main Menu", text => "Server is $ServerStatus and respawn is $WantRespawn - Select one:",
-                            list => [ '1', 'Start Server',
-                                      '2', 'Stop Server',
-                                      '3', 'Server Console',
-                                      '4', 'Turn Off Respawn',
-                                      '5', 'Turn Respawn On',
-                                      '6', 'Edit twserver.cfg',
-                                      '7', 'Run a Backup',
-                                      '8', 'Kill Server',
+                            list => [ '1', 'Server Console',
+                                      '2', 'Turn Off Respawn',
+                                      '3', 'Turn Respawn On',
+                                      '4', 'Edit twserver.cfg',
+                                      '5', 'Run a Backup',
+                                      '6', 'Kill Server',
                                       'q', 'Quit TMC' ] );
 }
 
@@ -78,29 +76,17 @@ while (-1)
 		$d->msgbox( title => $enjoyedtitle, text => "Thanks for using TMC..." );
 		exit 0;
 	}
-	if ($menuselection eq "1")
-	{
-		system("$InitDName start");
-	}
-	elsif ($menuselection eq "2")
-	{
-		if ($d->yesno( text => "Confirm stopping the server", text => "Are you sure you want to shut down the server?" ))
-		{
-			system("$InitDName stop");
-			sleep(5);
-		}
-	}
-	elsif ($menuselection eq "3")
+	elsif ($menuselection eq "1")
 	{
 		$d->msgbox( text => "To exit the Teeworlds console and return to TMC press CTRL-A CTRL-D" );
 		system("screen -r Teeworlds");
 	}
-	elsif ($menuselection eq "4")
+	elsif ($menuselection eq "2")
 	{
 		# Turn off respawn
 		system("touch $TEEWORLDSDIR/nostart");
 	}
-	elsif ($menuselection eq "5")
+	elsif ($menuselection eq "3")
 	{
 		# Turn respawn back on
 		if (-f "$TEEWORLDSDIR/nostart")
@@ -108,12 +94,12 @@ while (-1)
 			unlink("$TEEWORLDSDIR/nostart");
 		}
 	}
-	elsif ($menuselection eq "6")
+	elsif ($menuselection eq "4")
 	{
 		# Edit server config file
-		system("$FileEditor $TEEWORLDSDIR/twserver.cfg");
+		system("$FileEditor $TEEWORLDSDIR/teeworlds_srv.cfg");
 	}
-	elsif ($menuselection eq "7")
+	elsif ($menuselection eq "5")
 	{
 		# Run a backup
                 system("clear");
@@ -122,13 +108,13 @@ while (-1)
                 my $entered = <STDIN>;
 
 	}
-	elsif ($menuselection eq "8")
+	elsif ($menuselection eq "6")
         {
-                my $running=`ps ax|grep teeworlds_srv|grep -v grep`;
+                my $running=`ps ax|grep teeworlds-server|grep -v grep`;
                 if ($running ne "")
                 {
                         # Process is running, kill it
-                        system("killall teeworlds_srv");
+                        system("killall teeworlds-server");
                         sleep(5);
                 }
         }
