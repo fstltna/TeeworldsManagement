@@ -1,7 +1,7 @@
 # Teeworlds Management Console (2.0.0)
 Allows you to manage your Teeworlds server with a text based GUI
 
-Official support sites: [Official Github Repo](https://github.com/fstltna/TeeworldsManagement) - [Official Forum](https://gameplayer.club/phpBB3/viewforum.php?f=8)  - [Official Download Area](https://gameplayer.club/index.php/downloads/category/13-teeworlds)
+Official support sites: [Official Github Repo](https://github.com/fstltna/TeeworldsManagement) - [Official Forum](https://gameplayer.club/index.php/downloads/category/13-teeworlds)  - [Official Download Area](https://gameplayer.club/index.php/downloads/category/13-teeworlds)
 
 ---
 
