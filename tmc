@@ -9,7 +9,7 @@ use Term::ANSIScreen qw(cls);
 my $FileEditor = "/bin/nano";
 my $InitDName = "/home/twowner/bin/teeworlds";
 my $TEEWORLDSDIR = "/home/twowner";
-my $BackupCommand = "/home/teowner/TeeworldsBackup/teeworldsbackup.pl";
+my $BackupCommand = "/home/twowner/TeeworldsBackup/teeworldsbackup.pl";
 
 ###################################################
 # No changes below here
