@@ -1,11 +1,11 @@
-# Teeworlds Management Console (1.1.0)
+# Teeworlds Management Console (2.0.0)
 Allows you to manage your Teeworlds server with a text based GUI
 
 Official support sites: [Official Github Repo](https://github.com/fstltna/TeeworldsManagement) - [Official Forum](https://gameplayer.club/phpBB3/viewforum.php?f=8)  - [Official Download Area](https://gameplayer.club/index.php/downloads/category/13-teeworlds)
 
 ---
 
-Edit "tmc" and change the settings at the top if your Teeworlds server is not in /root/twserver
+Edit "tmc" and change the settings at the top if your Teeworlds server is not in /home/twowner
 
 You will need to run cpan and install these modules:
 
