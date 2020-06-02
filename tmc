@@ -127,7 +127,7 @@ while (-1)
 		# View Log File
 		if (! -f "$TEEWORLDSDIR/teeworlds.log")
 		{
-			system("$FileViewer $TEEWORLDSHOMEDIR/dumps/teeworlds.log.txt");
+			system("$FileViewer $TEEWORLDSDIR/teeworlds.log");
 		}
 		else
 		{
